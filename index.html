@@ -1,0 +1,185 @@
+/bin/bash: ml: line 1: syntax error: unexpected end of file
+/bin/bash: error importing function definition for `ml'
+/bin/bash: module: line 1: syntax error: unexpected end of file
+/bin/bash: error importing function definition for `module'
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Optimal Order Pick-and-Place | Fengyi Wang</title>
+    <meta name="description" content="Project page for Optimal Order Pick-and-Place of Objects in Cluttered Scene by a Mobile Manipulator, published in IEEE Robotics and Automation Letters.">
+    <meta name="theme-color" content="#0f6a50">
+    <link rel="canonical" href="https://fy-wang.github.io/">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "Optimal Order Pick-and-Place of Objects in Cluttered Scene by a Mobile Manipulator",
+        "author": [
+          {"@type": "Person", "name": "Fengyi Wang"},
+          {"@type": "Person", "name": "J. Rogelio Guadarrama-Olvera"},
+          {"@type": "Person", "name": "Gordon Cheng"}
+        ],
+        "datePublished": "2021",
+        "isPartOf": {"@type": "Periodical", "name": "IEEE Robotics and Automation Letters"},
+        "sameAs": "https://doi.org/10.1109/LRA.2021.3093021"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="identity" href="#top" aria-label="Back to the top">
+        <span class="identity-mark">FW</span>
+        <span>Fengyi Wang</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#approach">Approach</a>
+        <a href="#citation">Citation</a>
+        <a href="https://github.com/FY-Wang">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Research project · IEEE RA-L 2021</p>
+          <h1>Optimal Order Pick-and-Place of Objects in Cluttered Scene</h1>
+          <p class="authors">
+            <strong>Fengyi Wang</strong> · J. Rogelio Guadarrama-Olvera · Gordon Cheng
+          </p>
+          <p class="lede">
+            A planning framework that helps a mobile manipulator decide what to
+            move, in which order, and from where—while reducing unnecessary base
+            travel in cluttered environments.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://ieeexplore.ieee.org/document/9466441">
+              View on IEEE Xplore <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button secondary" href="https://doi.org/10.1109/LRA.2021.3093021">
+              DOI
+            </a>
+          </div>
+        </div>
+
+        <div class="pipeline" aria-label="Method pipeline">
+          <p class="pipeline-label">Planning pipeline</p>
+          <div class="pipeline-stages">
+            <div class="stage-row">
+              <span class="stage-index">01</span>
+              <div><h2>Observe</h2><p>Objects &amp; goals</p></div>
+              <span class="stage-arrow" aria-hidden="true">↓</span>
+            </div>
+            <div class="stage-row">
+              <span class="stage-index">02</span>
+              <div><h2>Reason</h2><p>Feasibility &amp; order</p></div>
+              <span class="stage-arrow" aria-hidden="true">↓</span>
+            </div>
+            <div class="stage-row">
+              <span class="stage-index">03</span>
+              <div><h2>Optimize</h2><p>Base route</p></div>
+              <span class="stage-arrow" aria-hidden="true">↓</span>
+            </div>
+            <div class="stage-row">
+              <span class="stage-index">04</span>
+              <div><h2>Execute</h2><p>Pick &amp; place</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="overview section" id="overview">
+        <div>
+          <p class="section-kicker">Overview</p>
+          <h2>Planning manipulation and navigation together</h2>
+        </div>
+        <div class="overview-copy">
+          <p>
+            A mobile manipulator in a cluttered scene must solve more than an
+            object-ordering problem. A target may only be reachable from certain
+            base poses, those poses may be blocked, and stacked objects introduce
+            additional dependencies between actions.
+          </p>
+          <p>
+            This work combines grasp–base sampling, dependency reasoning, goal
+            arrangement, and route optimization in one planning pipeline. The
+            resulting plan handles both monotone tasks and cases that require
+            temporary buffer moves.
+          </p>
+        </div>
+      </section>
+
+      <section class="section approach" id="approach">
+        <p class="section-kicker">Core contributions</p>
+        <div class="contribution-grid">
+          <article class="contribution">
+            <span>01</span>
+            <h2>Reason about feasibility</h2>
+            <p>Infer manipulation preconditions from robot kinematics, candidate base placements, and objects that temporarily block access.</p>
+          </article>
+          <article class="contribution">
+            <span>02</span>
+            <h2>Resolve dependencies</h2>
+            <p>Represent ordering constraints with a dependency graph and introduce buffer actions when a direct monotone sequence is impossible.</p>
+          </article>
+          <article class="contribution">
+            <span>03</span>
+            <h2>Optimize the route</h2>
+            <p>Transform feasible grasp and placement choices into a pickup-and-delivery routing problem that minimizes robot base travel.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="results section" aria-labelledby="results-title">
+        <div>
+          <p class="section-kicker">Reported results</p>
+          <h2 id="results-title">Fast planning with less robot travel</h2>
+          <p class="results-note">
+            Selected results reported in the paper. Public code, benchmark data,
+            and regenerated figures will be added as the research artifact is prepared.
+          </p>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <strong>17%</strong>
+            <span>up to 17% less base travel in monotone experiments</span>
+          </div>
+          <div class="metric">
+            <strong>25%</strong>
+            <span>lower total execution time in the non-monotone example</span>
+          </div>
+          <div class="metric">
+            <strong>≈ 9 s</strong>
+            <span>whole planning pipeline for a 20-object scene</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="citation section" id="citation">
+        <div>
+          <p class="section-kicker">Citation</p>
+          <h2>Cite the published article</h2>
+        </div>
+        <div class="citation-card">
+          <p>
+            F. Wang, J. R. Guadarrama-Olvera, and G. Cheng, “Optimal Order
+            Pick-and-Place of Objects in Cluttered Scene by a Mobile Manipulator,”
+            <em>IEEE Robotics and Automation Letters</em>, vol. 6, no. 4,
+            pp. 6402–6409, 2021.
+          </p>
+          <a href="https://doi.org/10.1109/LRA.2021.3093021">
+            doi: 10.1109/LRA.2021.3093021
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Fengyi Wang</p>
+      <p>Author-provided project page. This is not the IEEE version of record.</p>
+    </footer>
+  </body>
+</html>
