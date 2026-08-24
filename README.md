@@ -1,7 +1,3 @@
-/bin/bash: ml: line 1: syntax error: unexpected end of file
-/bin/bash: error importing function definition for `ml'
-/bin/bash: module: line 1: syntax error: unexpected end of file
-/bin/bash: error importing function definition for `module'
 # FY-Wang.github.io
 
 Personal research website for Fengyi Wang, hosted with GitHub Pages.
